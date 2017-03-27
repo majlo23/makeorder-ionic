@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
+import {LoginPage} from '../pages/login/login';
+import {Auth} from '../providers/auth';
 
 
 @Component({
@@ -17,8 +19,15 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public auth: Auth, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
+    this.auth.login().then((isLoggedIn)=>{
+      if(isLoggedIn){
+        this.rootPage = Page1
+      } else {
+        this.rootPage = LoginPage;
+      }
+    });
 
     // used for an example of ngFor and navigation
     this.pages = [

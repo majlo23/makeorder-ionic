@@ -6,12 +6,16 @@ import { Page2 } from '../pages/page2/page2';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {LoginPage} from '../pages/login/login';
+import {Auth} from '../providers/auth';
 
 @NgModule({
   declarations: [
     MyApp,
     Page1,
-    Page2
+    Page2,
+    LoginPage
+
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,12 +24,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     Page1,
-    Page2
+    Page2,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth
   ]
 })
 export class AppModule {}
