@@ -15,7 +15,7 @@ import {Auth} from '../providers/auth';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 

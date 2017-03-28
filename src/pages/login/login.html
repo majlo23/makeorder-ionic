@@ -15,21 +15,21 @@
 
 <ion-content padding>
   <ion-list>
+        <ion-input floating-label>
+            <ion-label>Username</ion-label>
+            <input type="text" name="username" [(ngModel)]="data.username">
+        </ion-input>
 
-  <ion-item>
-    <ion-label>Username</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+        <button round block (click)="submit()">Submit to server</button>
+    </ion-list>
 
-  <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
+    <ion-card>
+        <ion-card-header>
+            Response
+        </ion-card-header>
 
-</ion-list>
-
-<div padding>
-  <button block>Sign In</button>
-</div>
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+        <ion-card-content>
+            <b>{{data.response}}</b>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
